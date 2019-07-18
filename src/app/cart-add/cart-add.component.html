@@ -1,0 +1,30 @@
+<form>
+  <mat-card class="card-style">
+    <mat-card-header class="title-align">
+      <mat-card-title>Add</mat-card-title>
+    </mat-card-header>
+    <mat-form-field>
+      <mat-label>Name:</mat-label>
+      <mat-select [(ngModel)]="itemSelected" name="item">
+        <mat-option *ngFor="let item of items" [value]="item.value">
+          {{item.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Qty:</mat-label>
+      <input [formControl]="qty" matInput placeholder="No of items">
+    </mat-form-field>
+
+    <mat-card-content *ngIf="qty.value > 0">
+      <p>Price: {{(itemSelected * qty.value).toFixed(2)}} </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-flat-button type="button" color="primary" (click)="onAdd()" class="button-margin-right">Add</button>
+      <button mat-flat-button type="button" color="primary" (click)="onCancel()" class="button-margin-left">Cancel</button>
+    </mat-card-actions>
+
+  </mat-card>
+</form>

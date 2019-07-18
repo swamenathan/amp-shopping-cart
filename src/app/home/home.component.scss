@@ -1,0 +1,23 @@
+//  Desktop
+@media screen and (min-width: 768px)  {
+  .display-home {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .display-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+  }
+}
+
+.item {
+  flex-grow: 1;
+  text-align: center;
+}
